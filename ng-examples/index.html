@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="varejotec">
+
+<head>
+    <title>Exemplos AngularJS VarejoTEC</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="module.js"></script>
+    <script src="example-controller.js"></script>
+    <script src="rest-service.js"></script>
+
+</head>
+
+<body ng-controller="ExampleController as vm">
+
+    <!-- EXPRESSÕES -->
+    <div class="panel panel-default">
+        <div class="panel-heading">Expressões</div>
+        <div class="panel-body">
+            <span>1 + 1 = {{1+1}}</span>
+        </div>
+    </div>
+
+    <!-- ITERAÇÃO -->
+    <div class="panel panel-default">
+        <div class="panel-heading">Iteração</div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="item in vm.lista">{{item.descricao}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- TABELA E FILTRO -->
+    <div class="panel panel-default">
+        <div class="panel-heading">Tabela e Filtro</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="control-label" for="txtFiltro">Filtro:</label>
+                <input type="text" id="txtFiltro" class="form-control" placeholder="Pesquisar" ng-model="vm.filtro">
+            </div>
+            <!-- Table -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="item in vm.lista | filter: vm.filtro">
+                    <td>{{item.codigo}}</td>
+                    <td>{{item.descricao}}</td>
+                    <td>{{item.preco | number:2}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- FORM -->
+    <form name="myform">
+        <div class="panel panel-default">
+            <div class="panel-heading">Formulario (Novo Item)</div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label class="control-label" for="txtCodigo">Código:</label>
+                    <input type="number" id="txtCodigo" class="form-control" placeholder="Código" ng-model="vm.model.codigo">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="txtDescricao">Descrição:</label>
+                    <input type="text" id="txtDescricao" class="form-control" placeholder="Descricao" ng-model="vm.model.descricao">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="txtPreco">Preço:</label>
+                    <input type="number" id="txtPreco" class="form-control" placeholder="Preço" ng-model="vm.model.preco">
+                </div>
+
+
+
+            </div>
+            <div class="panel-footer pull-right">
+                <button type="submit" class="btn btn-danger" ng-click="vm.addItem()">Adicionar Item</button>
+            </div>
+        </div>
+    </form>
+
+
+
+</body>
+
+</html>

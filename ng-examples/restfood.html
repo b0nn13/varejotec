@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="varejotec">
+
+<head>
+    <title>Exemplos AngularJS VarejoTEC</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Componentes Bower -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+
+    <!-- AngularJS - Modules -->
+    <script src="module.js"></script>
+
+    <!-- AngularJS - Services -->
+    <script src="rest-service.js"></script>
+    <script src="rest-food-service.js"></script>
+
+    <!-- AngularJS - Controllers -->
+    <script src="rest-food-controller.js"></script>
+
+</head>
+
+<body ng-controller="RESTFoodController as vm">
+
+    <div class="row">
+
+        <!-- CARDAPIO -->
+        <div class="col-md-8">
+            <div class="panel panel-danger">
+
+                <div class="panel-heading">Cardápio</div>
+
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label" for="txtFiltro">Filtro:</label>
+                        <input type="text" id="txtFiltro" class="form-control" placeholder="Pesquisar" ng-model="vm.filtro">
+                    </div>
+                    <!-- Table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                                <th>Preço</th>
+                                <th ng-show="vm.pedido">Ação</th>
+                            </tr>
+                        </thead>
+                        <tr ng-repeat="item in vm.cardapio | filter: vm.filtro">
+                            <td>{{item.codigo}}</td>
+                            <td>{{item.descricao}}</td>
+                            <td>{{item.preco | number:2}}</td>
+                            <td ng-show="vm.pedido">
+                                <button type="button" class="btn btn-warning" ng-click="vm.addItem(item)">+ Adicionar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="panel-footer pull-right">
+                    <button type="button" ng-show="!vm.pedido" class="btn btn-success" ng-click="vm.iniciarPedido()">Iniciar Pedido</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- PEDIDO -->
+        <div class="col-md-4" ng-show="vm.pedido">
+            <div class="panel panel-info">
+                <div class="panel-heading">PEDIDO</div>
+                <div class="panel-body">
+                    <span class="text-dange" ng-show="!vm.pedido.items || vm.pedido.items.length == 0">ADICIONE ITENS</span>
+                    <ul class="list-group" ng-show="vm.pedido.items">
+                        <li class="list-group-item" ng-repeat="item in vm.pedido.items">
+                            <span>{{item.descricao}} - {{item.preco}}</span>
+                            <button type="button" class="btn btn-danger" ng-click="vm.removeItem(item)">Remover</button>
+                        </li>
+                    </ul>
+                    <span ng-show="vm.pedido.valorTotal">TOTAL DO PEDIDO: {{vm.pedido.valorTotal | number:2}}</span>
+                </div>
+
+                <div class="panel-footer pull-right">
+                    <button type="button" class="btn btn-default" ng-click="vm.cancelarPedido()">Cancelar Pedido</button>
+                    <button type="button" ng-show="vm.pedido.items" class="btn btn-danger" ng-click="vm.finalizarPedido()">Finalizar Pedido</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+
+</html>

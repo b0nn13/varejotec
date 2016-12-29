@@ -1,0 +1,22 @@
+{
+  "name": "varejotec",
+  "authors": [
+    "Fabio Oliveira <fabio.bonnie@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "GLP",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "^2.3.2",
+    "angular": "^1.6.1",
+    "bootstrap": "^3.3.7"
+  }
+}
