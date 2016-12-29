@@ -14,6 +14,6 @@ Fontes dos Exemplos AngularJS apresentados no encontro VarejoTEC (PC Sistemas)
  3. Apos clonar o repositorio execute no mesmo diretorio o seguinte comando **`bower update`**, dessa forma o bower vai baixar automaticamente as bibliotecas javascript e css necessarias para o funcionamento dos exemplos.
  
  **Executando:**
-Para executar basta abrir os arquivos HTML que est?o dentro do diretorio ng-example
+Para executar basta abrir os arquivos HTML que estao dentro do diretorio ng-example
 
 
