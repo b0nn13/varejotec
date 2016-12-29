@@ -10,8 +10,8 @@ Fontes dos Exemplos AngularJS apresentados no encontro VarejoTEC (PC Sistemas)
 
 **Baixando o projeto:**
  1. Crie um diretorio para armazenar repositorios git em um local de sua preferencia e abra o diretorio no terminal.
- 2. Fa?a o clone do repositorio com o seguinte comando **`git clone https://github.com/b0nn13/varejotec.git`**
- 3. Apos clonar o repositorio execute no mesmo diretorio o seguinte comando **`bower update`**, dessa forma o bower vai baixar automaticamente as bibliotecas javascript e css necess?rias para o funcionamento dos exemplos.
+ 2. Faca o clone do repositorio com o seguinte comando **`git clone https://github.com/b0nn13/varejotec.git`**
+ 3. Apos clonar o repositorio execute no mesmo diretorio o seguinte comando **`bower update`**, dessa forma o bower vai baixar automaticamente as bibliotecas javascript e css necessarias para o funcionamento dos exemplos.
  
  **Executando:**
 Para executar basta abrir os arquivos HTML que est?o dentro do diretorio ng-example
