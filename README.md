@@ -1,6 +1,6 @@
 # VarejoTEC
 
-Fontes dos Exemplos AngularJS apresentados na 1º VarejoTEC (PC Sistemas)
+Fontes dos Exemplos AngularJS apresentados no encontro VarejoTEC (PC Sistemas)
 
 **Programas para instalar:**
 
